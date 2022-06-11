@@ -1,0 +1,23 @@
+{
+  "name": "genshin-translate",
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ],
+  "scripts": {
+    "init": "lerna run init",
+    "dev": "lerna run dev",
+    "lint": "eslint --ext=.js,.mjs,.cjs,.jsx,.ts,.tsx --ignore-path .gitignore .",
+    "glossary:info": "node ./scripts/glossary-info.mjs",
+    "release:glossary": "node ./scripts/release-glossary.mjs"
+  },
+  "dependencies": {
+    "@lerna-lite/cli": "^1.0.5",
+    "@lerna-lite/run": "^1.0.5",
+    "node-fetch": "^3.2.3"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}

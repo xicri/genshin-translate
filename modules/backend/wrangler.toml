@@ -1,0 +1,30 @@
+name = "genshin-translate"
+type = "webpack"
+
+account_id = "6c6da1080173b4e8512770e8f9309068"
+zone_id = "4074d2e1589411eb18649fd21dd3aa91"
+workers_dev = false
+compatibility_date = "2022-04-17"
+
+[env.production]
+route = "translate-backend.genshin-dictionary.com/*"
+
+[env.production.vars]
+NODE_ENV = "production"
+
+[env.preview]
+route = "translate-backend-preview.genshin-dictionary.com/*"
+
+[env.preview.vars]
+NODE_ENV = "preview"
+
+[env.development]
+workers_dev = true
+
+[env.development.vars]
+NODE_ENV = "development"
+
+# [secrets]
+# MINHON_API_KEY
+# MINHON_API_SECRET
+# MINHON_LOGIN_ID

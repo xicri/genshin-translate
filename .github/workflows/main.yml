@@ -1,0 +1,56 @@
+name: "actions"
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  preview:
+    if: ${{ github.ref != 'refs/heads/main' }}
+    timeout-minutes: 5
+    env:
+      NODE_ENV: preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - uses: cloudflare/wrangler-action@1.3.0
+        with:
+          environment: "preview"
+          workingDirectory: "modules/backend"
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+
+  release:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    timeout-minutes: 5
+    env:
+      NODE_ENV: production
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: npm ci --production
+      - uses: cloudflare/wrangler-action@1.3.0
+        with:
+          environment: "production"
+          workingDirectory: "modules/backend"
+          apiToken: ${{ secrets.CF_API_TOKEN }}

@@ -1,0 +1,55 @@
+#
+# System
+#
+
+# Logs
+logs/
+*.log
+
+# PIDs
+*.pid
+*.seed
+*.pid.lock
+pids
+
+# File manager configs
+.directory
+Thumbs.db
+*.DS_Store
+
+#
+# JavaScript
+#
+
+# NPM / Yarn
+node_modules/
+.npm/
+.yarn-integrity
+
+# npm is the package manager for this project.
+yarn.lock
+
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel
+
+# Others
+.node_repl_history
+.eslintcache
+
+#
+# Cloudflare Workers / Wrangler
+#
+dist/
+worker/
+
+#
+# Misc
+#
+
+# env files
+.env
+.env.local
