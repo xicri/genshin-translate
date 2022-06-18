@@ -1,5 +1,7 @@
 {
   "name": "genshin-translate",
+  "license": "Apache-2.0",
+  "author": "Xicri <xicri@proton.me> (https://genshin-dictionary.com/)",
   "private": true,
   "workspaces": [
     "modules/*"
