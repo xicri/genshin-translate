@@ -66,8 +66,8 @@ export default function Index() {
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:site_name" content="原神 自動翻訳" />
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@phol_si" />
-        <meta property="twitter:creator" content="@phol_si" />
+        <meta property="twitter:site" content="@xicri_gi" />
+        <meta property="twitter:creator" content="@xicri_gi" />
       </Head>
 
       <div className={styles.innerContainer}>
@@ -102,7 +102,7 @@ export default function Index() {
         </p>
 
         <footer>
-          &copy; 2022 <a href="https://twitter.com/phol_si" target="_blank" rel="noreferrer">@phol_si</a> / Translation engine powered by <a href="https://www.nict.go.jp/" target="_blank" rel="noreferrer">NICT</a>
+          &copy; 2022 <a href="https://twitter.com/xicri_gi" target="_blank" rel="noreferrer">Xicri</a> / Translation engine powered by <a href="https://www.nict.go.jp/" target="_blank" rel="noreferrer">NICT</a>
         </footer>
       </div>
     </div>
