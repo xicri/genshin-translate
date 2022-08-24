@@ -10,19 +10,19 @@ compatibility_date = "2022-04-17"
 route = "translate-backend.genshin-dictionary.com/*"
 
 [env.production.vars]
-NODE_ENV = "production"
+SERVER_ENV = "production"
 
 [env.preview]
 route = "translate-backend-preview.genshin-dictionary.com/*"
 
 [env.preview.vars]
-NODE_ENV = "preview"
+SERVER_ENV = "preview"
 
 [env.development]
 workers_dev = true
 
 [env.development.vars]
-NODE_ENV = "development"
+SERVER_ENV = "development"
 
 # [secrets]
 # MINHON_API_KEY
