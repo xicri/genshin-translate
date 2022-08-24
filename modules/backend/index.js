@@ -1,4 +1,4 @@
-/* global NODE_ENV, MINHON_API_KEY, MINHON_API_SECRET, MINHON_LOGIN_ID */
+/* global SERVER_ENV, MINHON_API_KEY, MINHON_API_SECRET, MINHON_LOGIN_ID */
 
 import { Router } from "itty-router";
 
@@ -40,7 +40,7 @@ const login = async () => {
 const translate = async ({ sourceText, sourceLang, accessToken }) => {
   let apiParam;
 
-  if (NODE_ENV === "production") {
+  if (SERVER_ENV === "production") {
     apiParam = sourceLang === "ja" ? "c-1688_ja_en" : "c-1689_en_ja";
   } else {
     apiParam = sourceLang === "ja" ? "c-1685_ja_en" : "c-1687_en_ja";
@@ -75,14 +75,14 @@ const router = Router();
 
 let accessControlAllowOrigin;
 
-if (NODE_ENV === "production") {
+if (SERVER_ENV === "production") {
   accessControlAllowOrigin = "https://translate.genshin-dictionary.com";
-} else if (NODE_ENV === "preview") {
+} else if (SERVER_ENV === "preview") {
   accessControlAllowOrigin = "*";
-} else if (NODE_ENV === "development") {
+} else if (SERVER_ENV === "development") {
   accessControlAllowOrigin = "*";
 } else {
-  throw new Error(`Unexpected NODE_ENV: ${NODE_ENV}`);
+  throw new Error(`Unexpected SERVER_ENV: ${SERVER_ENV}`);
 }
 
 router.post("/translate", async request => {

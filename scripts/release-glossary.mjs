@@ -10,7 +10,7 @@ import {
 } from "../libs/translator.mjs";
 
 // skip on local env
-if (process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "preview") {
+if (process.env.SERVER_ENV !== "production" && process.env.SERVER_ENV !== "preview") {
   throw new Error("Skipping updating MinHon glossaries");
 }
 
@@ -69,8 +69,8 @@ function jsonTo(format, objs, options = { header: true, quotes: true }) {
 //
 // Register Glossaries
 //
-const targetEnJaGlossaryName = `genshin-en-ja-${process.env.NODE_ENV}`;
-const targetJaEnGlossaryName = `genshin-ja-en-${process.env.NODE_ENV}`;
+const targetEnJaGlossaryName = `genshin-en-ja-${process.env.SERVER_ENV}`;
+const targetJaEnGlossaryName = `genshin-ja-en-${process.env.SERVER_ENV}`;
 
 const res = await fetch("https://genshin-dictionary.com/dataset/words.json");
 const words = await res.json();
@@ -106,7 +106,7 @@ await uploadGlossaryItems(jaEnTSV, newJaToEnGlossaryID, { accessToken });
 // Register Custom Translation
 //
 await updateGlossariesInCustomTranslation({
-  id: process.env.NODE_ENV === "production" ? 1689 : 1687,
+  id: process.env.SERVER_ENV === "production" ? 1689 : 1687,
   srcLang: "en",
   destLang: "ja",
   glossaryID: newEnToJaGlossaryID,
@@ -115,7 +115,7 @@ await updateGlossariesInCustomTranslation({
 });
 
 await updateGlossariesInCustomTranslation({
-  id: process.env.NODE_ENV === "production" ? 1688 : 1685,
+  id: process.env.SERVER_ENV === "production" ? 1688 : 1685,
   srcLang: "ja",
   destLang: "en",
   glossaryID: newJaToEnGlossaryID,

@@ -18,7 +18,7 @@ jobs:
     if: ${{ github.ref != 'refs/heads/main' }}
     timeout-minutes: 5
     env:
-      NODE_ENV: preview
+      SERVER_ENV: preview
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     timeout-minutes: 5
     env:
-      NODE_ENV: production
+      SERVER_ENV: production
     runs-on: ubuntu-latest
 
     steps:

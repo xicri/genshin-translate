@@ -53,8 +53,8 @@ export const login = async () => {
  * @returns {number} - glossary ID
  */
 export const createGlossary = async (src, target, { accessToken }) => {
-  if (!process.env.NODE_ENV) {
-    throw new Error("NODE_ENV is required to create glossary.");
+  if (!process.env.SERVER_ENV) {
+    throw new Error("SERVER_ENV is required to create glossary.");
   }
 
   if (
@@ -72,10 +72,10 @@ export const createGlossary = async (src, target, { accessToken }) => {
   params.append("name", process.env.MINHON_LOGIN_ID);
   params.append("api_name", "term_root");
   params.append("api_param", "set");
-  params.append("title", `genshin-${src}-${target}-${process.env.NODE_ENV}`);
+  params.append("title", `genshin-${src}-${target}-${process.env.SERVER_ENV}`);
   params.append("lang_s", src); // source language
   params.append("lang_t", target); // target language
-  params.append("provide", process.env.NODE_ENV === "production" ? 1 : 0); // only allow to use production glossary in academic research
+  params.append("provide", process.env.SERVER_ENV === "production" ? 1 : 0); // only allow to use production glossary in academic research
 
   try {
     const res = await fetch("https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/", {
@@ -242,11 +242,11 @@ export const updateGlossariesInCustomTranslation = async ({ id, srcLang, destLan
   params.append("api_name", "mt_custom");
   params.append("api_param", "update");
   params.append("id", id);
-  params.append("title", `原神 自動翻訳 (${srcLang} → ${destLang} / ${ process.env.NODE_ENV === "production" ? "プロダクション" : "ステージング" })`);
+  params.append("title", `原神 自動翻訳 (${srcLang} → ${destLang} / ${ process.env.SERVER_ENV === "production" ? "プロダクション" : "ステージング" })`);
   params.append(
     "description",
     "ゲーム「原神」の固有名詞をサポートしたカスタム自動翻訳です。"
-      + (process.env.NODE_ENV !== "production" ? "このカスタム自動翻訳はステージング環境用です。" : "")
+      + (process.env.SERVER_ENV !== "production" ? "このカスタム自動翻訳はステージング環境用です。" : "")
   );
   params.append("lang_s", srcLang);
   params.append("lang_t", destLang);

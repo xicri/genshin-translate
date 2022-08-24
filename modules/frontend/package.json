@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "next": "^12.1.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "sass": "^1.50.0"
   }
 }

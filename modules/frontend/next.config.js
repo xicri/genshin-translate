@@ -1,13 +1,13 @@
 let backendBaseURL;
 
-if (process.env.NODE_ENV === "production") {
-  backendBaseURL = "https://genshin-translate-production.xicri.workers.dev";
-} else if (process.env.NODE_ENV === "preview") {
-  backendBaseURL = "https://genshin-translate-preview.xicri.workers.dev";
-} else if (process.env.NODE_ENV === "development") {
+if (process.env.SERVER_ENV === "production") {
+  backendBaseURL = "https://translate-backend.genshin-dictionary.com";
+} else if (process.env.SERVER_ENV === "preview") {
+  backendBaseURL = "https://translate-backend-preview.genshin-dictionary.com";
+} else if (process.env.SERVER_ENV === "development") {
   backendBaseURL = "http://127.0.0.1:8787";
 } else {
-  throw new Error(`Unexpected NODE_ENV: ${process.env.NODE_ENV}`);
+  throw new Error(`Unexpected SERVER_ENV: ${process.env.SERVER_ENV}`);
 }
 
 const nextConfig = {
