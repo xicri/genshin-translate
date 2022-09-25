@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "config:base",
+    "monorepo:lerna",
+  ],
+  "timezone": "Asia/Tokyo",
+  "separateMajorMinor": false,
+
+  // disable non-security updates
+  "packageRules": [{
+    "enabled": false,
+    "groupName": "everything",
+    "matchManagers": ["npm"],
+    "matchPackagePatterns": ["*"],
+  }],
+
+  // configure security updates
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "assignees": [ "xicri" ],
+    "labels": [ "security" ],
+    "rangeStrategy": "update-lockfile",
+    "groupName": "Security updates",
+  }
+}
