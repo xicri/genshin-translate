@@ -6,7 +6,7 @@
     "dev": "wrangler dev --env development"
   },
   "dependencies": {
-    "@cloudflare/wrangler": "^1.19.11",
-    "itty-router": "^2.6.1"
+    "itty-router": "^2.6.1",
+    "wrangler": "^2.1.6"
   }
 }
