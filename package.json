@@ -14,8 +14,8 @@
     "release:glossary": "node ./scripts/release-glossary.mjs"
   },
   "dependencies": {
-    "@lerna-lite/cli": "^1.11.3",
-    "@lerna-lite/run": "^1.11.3",
+    "@lerna-lite/cli": "^1.13.0",
+    "@lerna-lite/run": "^1.13.0",
     "node-fetch": "^3.2.3"
   },
   "devDependencies": {
