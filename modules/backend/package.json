@@ -3,7 +3,7 @@
   "main": "index.js",
   "scripts": {
     "init": "wrangler login && npx wrangler secret put MINHON_API_KEY --env development && npx wrangler secret put MINHON_API_SECRET --env development && npx wrangler secret put MINHON_LOGIN_ID --env development",
-    "dev": "wrangler dev --env development"
+    "dev": "wrangler dev --local"
   },
   "dependencies": {
     "itty-router": "^2.6.1",

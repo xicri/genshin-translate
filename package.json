@@ -7,8 +7,8 @@
     "modules/*"
   ],
   "scripts": {
-    "init": "lerna run init",
-    "dev": "lerna run dev",
+    "init": "lerna run --stream init",
+    "dev": "lerna run --stream dev",
     "lint": "eslint --ext=.js,.mjs,.cjs,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "glossary:info": "node ./scripts/glossary-info.mjs",
     "release:glossary": "node ./scripts/release-glossary.mjs"
