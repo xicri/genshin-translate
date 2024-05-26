@@ -24,7 +24,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run lint
-      - uses: cloudflare/wrangler-action@2.0.0
+      - uses: cloudflare/wrangler-action@v3.6.1
         with:
           environment: "preview"
           workingDirectory: "modules/backend"
@@ -44,7 +44,7 @@ jobs:
           node-version: 18.x
           cache: "npm"
       - run: npm ci --production
-      - uses: cloudflare/wrangler-action@2.0.0
+      - uses: cloudflare/wrangler-action@v3.6.1
         with:
           environment: "production"
           workingDirectory: "modules/backend"
